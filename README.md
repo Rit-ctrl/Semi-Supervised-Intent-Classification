@@ -44,5 +44,31 @@ Both the generator and discriminator use AdamW (Adam with a weight decay)  with 
 
 ## Results
 
-Since the MASSIVE dataset does not contain unlabelled data, we mask the labels of a proportion of the training set as unlabelled data and evaluate the performance based on different variants.
+Since the MASSIVE dataset does not contain unlabelled data, we mask the labels of a fraction of the training set as unlabelled data and evaluate the performance based on different variants.
+
+| Variant   | Fraction masked (unlabelled) | Number of epochs |
+|-----------|--------------------------------|------------------|
+| 1         | 0.9                            | 20               |
+| 2         | 0.8                            | 18               |
+| 3         | 0.6                            | 16               |
+| 4         | 0.4                            |  14              |
+| 5         | 0.2                            | 12               |
+| 6         | 0.1                            | 10               |
+
+![image](https://github.com/user-attachments/assets/1b1da68e-0f2f-44ce-a94b-0b67c96a3ad3)
+
+![image](https://github.com/user-attachments/assets/f05dc15a-3e5e-4e03-9034-d757223d7149)
+
+| Variant      | Fraction masked (unlabelled) |Accuracy |
+|--------------|----------|-----------|
+| 1            | 0.9      |77.03    |
+| 2            | 0.8        | 81.00    |
+| 3            | 0.6      |83.09    |
+| 4            | 0.4        |84.63    |
+| 5            | 0.2         |85.34    |
+| 6            | 0.1        |85.34    |
+| Full dataset | 0         |85.4     |
+
+
+It is observed that even with only 10% labelled data and 90% unlabelled data (Variant 1), 77.03 % intent classification accuracy is attained, compared to 85.4% accuracy when the full dataset is labelled. So the GAN-BERT model can classify intents using limited labelled training data with reasonable accuracy.
 
